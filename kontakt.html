@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - WebManager | Professionelle Webseiten nach Maß</title>
+    <meta name="description" content="Kontaktieren Sie WebManager für Ihr nächstes Webprojekt. Kostenlose Beratung, schnelle Antwortzeiten und individuelle Lösungen.">
+    <meta name="keywords" content="Kontakt, Webdesign Beratung, Webentwicklung Anfrage, Website erstellen lassen">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .gradient-text { 
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass-effect {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .form-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-dark-900 via-slate-800 to-dark-900 text-white">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-code text-2xl text-primary-500" aria-hidden="true"></i>
+                    <span class="text-xl font-bold text-white">WebManager</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Hauptnavigation">
+                    <a href="index.html" class="text-slate-300 hover:text-white transition-colors duration-200 font-medium">Home</a>
+                    <a href="index.html#leistungen" class="text-slate-300 hover:text-white transition-colors duration-200 font-medium">Leistungen</a>
+                    <a href="index.html#preise" class="text-slate-300 hover:text-white transition-colors duration-200 font-medium">Preise</a>
+                    <a href="index.html#projekte" class="text-slate-300 hover:text-white transition-colors duration-200 font-medium">Projekte</a>
+                    <a href="kontakt.html" class="text-white font-medium">Kontakt</a>
+                </nav>
+                
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="konfigurator.html" 
+                       class="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-full font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-primary-500/25">
+                        <i class="fas fa-edit text-sm" aria-hidden="true"></i>
+                        <span>Konfigurator</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-md text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                        id="mobile-menu-button" aria-label="Menü öffnen">
+                    <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-slate-700">
+                    <a href="index.html" class="block px-3 py-2 text-slate-300 hover:text-white transition-colors duration-200">Home</a>
+                    <a href="index.html#leistungen" class="block px-3 py-2 text-slate-300 hover:text-white transition-colors duration-200">Leistungen</a>
+                    <a href="index.html#preise" class="block px-3 py-2 text-slate-300 hover:text-white transition-colors duration-200">Preise</a>
+                    <a href="index.html#projekte" class="block px-3 py-2 text-slate-300 hover:text-white transition-colors duration-200">Projekte</a>
+                    <a href="kontakt.html" class="block px-3 py-2 text-white font-medium">Kontakt</a>
+                    <a href="konfigurator.html" class="block px-3 py-2 mt-4 bg-primary-500 text-white rounded-lg text-center font-semibold">
+                        <i class="fas fa-edit mr-2" aria-hidden="true"></i>Konfigurator
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-12">
+        <!-- Hero Section -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center space-x-2 bg-primary-500/10 border border-primary-500/30 px-4 py-2 rounded-full text-primary-400 mb-6">
+                        <i class="fas fa-envelope text-sm" aria-hidden="true"></i>
+                        <span class="text-sm font-medium">Kontakt</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                        Bereit für Ihre neue <span class="gradient-text">Webseite?</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                        Egal ob Idee oder fertiger Plan – schreiben Sie uns einfach. Wir antworten zuverlässig und unkompliziert.
+                    </p>
+                </div>
+
+                <!-- Contact Content -->
+                <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    
+                    <!-- Contact Form -->
+                    <section class="form-card rounded-2xl p-8">
+                        <header class="mb-8">
+                            <h2 class="text-2xl font-bold text-white flex items-center space-x-3">
+                                <i class="fas fa-paper-plane text-primary-500" aria-hidden="true"></i>
+                                <span>Nachricht senden</span>
+                            </h2>
+                        </header>
+                        
+                        <form action="https://formspree.io/f/movwkadd" method="POST" class="space-y-6">
+                            <!-- Name Field -->
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-slate-300 mb-2">
+                                    Ihr Name *
+                                </label>
+                                <input type="text" 
+                                       id="contact-name" 
+                                       name="name" 
+                                       required 
+                                       placeholder="Max Mustermann"
+                                       class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200">
+                            </div>
+                            
+                            <!-- Email Field -->
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-slate-300 mb-2">
+                                    Ihre E-Mail *
+                                </label>
+                                <input type="email" 
+                                       id="contact-email" 
+                                       name="email" 
+                                       required 
+                                       placeholder="ihre@email.de"
+                                       class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200">
+                            </div>
+
+                            <!-- Subject Field -->
+                            <div>
+                                <label for="contact-subject" class="block text-sm font-medium text-slate-300 mb-2">
+                                    Betreff
+                                </label>
+                                <select id="contact-subject" 
+                                        name="subject"
+                                        class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200">
+                                    <option value="">Bitte wählen...</option>
+                                    <option value="Website-Projekt">Website-Projekt</option>
+                                    <option value="E-Commerce">E-Commerce</option>
+                                    <option value="Wartung & Support">Wartung & Support</option>
+                                    <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                                    <option value="Sonstiges">Sonstiges</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Message Field -->
+                            <div>
+                                <label for="contact-message" class="block text-sm font-medium text-slate-300 mb-2">
+                                    Ihre Nachricht *
+                                </label>
+                                <textarea id="contact-message" 
+                                          name="message" 
+                                          required 
+                                          placeholder="Beschreiben Sie Ihr Projekt oder Ihre Anfrage..." 
+                                          rows="6"
+                                          class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-vertical"></textarea>
+                            </div>
+
+                            <!-- Privacy Consent -->
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" 
+                                       id="privacy-consent" 
+                                       name="privacy_consent" 
+                                       required
+                                       class="mt-1 w-4 h-4 text-primary-500 bg-slate-800 border-slate-600 rounded focus:ring-primary-500 focus:ring-2">
+                                <label for="privacy-consent" class="text-sm text-slate-300 leading-relaxed">
+                                    Ich stimme der <a href="#" class="text-primary-400 hover:text-primary-300 underline">Datenschutzerklärung</a> zu und bin einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage gespeichert werden. *
+                                </label>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" 
+                                    class="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-primary-500/25 flex items-center justify-center space-x-2">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                <span>Nachricht senden</span>
+                            </button>
+                        </form>
+                    </section>
+
+                    <!-- Contact Info & FAQ -->
+                    <div class="space-y-8">
+                        <!-- Contact Information -->
+                        <section class="form-card rounded-2xl p-8">
+                            <header class="mb-6">
+                                <h2 class="text-2xl font-bold text-white flex items-center space-x-3">
+                                    <i class="fas fa-info-circle text-green-500" aria-hidden="true"></i>
+                                    <span>Kontaktinformationen</span>
+                                </h2>
+                            </header>
+                            
+                            <div class="space-y-6">
+                                <!-- Email -->
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-primary-500/20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-primary-500" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-white">E-Mail</h3>
+                                        <p class="text-slate-300">test.strom@gmx.de</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Phone -->
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone text-purple-500" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-white">Telefon</h3>
+                                        <p class="text-slate-300">+49 123 456 7890</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Response Time -->
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-clock text-green-500" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-white">Antwortzeit</h3>
+                                        <p class="text-slate-300">Innerhalb von 24 Stunden</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- FAQ Section -->
+                        <section class="form-card rounded-2xl p-8">
+                            <header class="mb-6">
+                                <h2 class="text-2xl font-bold text-white flex items-center space-x-3">
+                                    <i class="fas fa-question-circle text-yellow-500" aria-hidden="true"></i>
+                                    <span>Häufige Fragen</span>
+                                </h2>
+                            </header>
+                            
+                            <div class="space-y-6">
+                                <div class="border-b border-slate-700 pb-4">
+                                    <h3 class="font-semibold text-white mb-2">Wie lange dauert ein Website-Projekt?</h3>
+                                    <p class="text-slate-300 text-sm leading-relaxed">
+                                        Je nach Umfang 2-6 Wochen. Genaue Zeitpläne besprechen wir in der kostenlosen Beratung.
+                                    </p>
+                                </div>
+                                
+                                <div class="border-b border-slate-700 pb-4">
+                                    <h3 class="font-semibold text-white mb-2">Ist die Beratung wirklich kostenlos?</h3>
+                                    <p class="text-slate-300 text-sm leading-relaxed">
+                                        Ja, das Erstgespräch ist komplett unverbindlich und kostenfrei.
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="font-semibold text-white mb-2">Bieten Sie auch Wartung an?</h3>
+                                    <p class="text-slate-300 text-sm leading-relaxed">
+                                        Ja, wir bieten umfassende Wartungs- und Support-Pakete an.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Oder nutzen Sie unseren <span class="gradient-text">Konfigurator</span>
+            </h2>
+            <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                Konfigurieren Sie Ihre Website interaktiv und erhalten Sie sofort ein individuelles Angebot.
+            </p>
+            
+            <a href="konfigurator.html" 
+               class="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-primary-500/25">
+                <i class="fas fa-cogs" aria-hidden="true"></i>
+                <span>Zum Konfigurator</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-primary-500/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
+                <!-- Links -->
+                <nav class="flex flex-wrap gap-6 justify-center md:justify-start" aria-label="Footer Navigation">
+                    <a href="#impressum" class="text-slate-400 hover:text-white transition-colors duration-200">Impressum</a>
+                    <a href="#datenschutz" class="text-slate-400 hover:text-white transition-colors duration-200">Datenschutz</a>
+                    <a href="#agb" class="text-slate-400 hover:text-white transition-colors duration-200">AGB</a>
+                </nav>
+                
+                <!-- Copyright -->
+                <div class="text-slate-500 text-sm">
+                    &copy; 2024 WebManager. Alle Rechte vorbehalten.
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex gap-4 justify-center md:justify-end">
+                    <a href="#" class="w-10 h-10 bg-primary-500/10 border border-primary-500/30 rounded-full flex items-center justify-center text-primary-400 hover:bg-primary-500 hover:text-white transition-all duration-200" aria-label="Twitter">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-primary-500/10 border border-primary-500/30 rounded-full flex items-center justify-center text-primary-400 hover:bg-primary-500 hover:text-white transition-all duration-200" aria-label="Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-primary-500/10 border border-primary-500/30 rounded-full flex items-center justify-center text-primary-400 hover:bg-primary-500 hover:text-white transition-all duration-200" aria-label="Facebook">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Form validation enhancement
+        const form = document.querySelector('form');
+        const submitButton = form?.querySelector('button[type="submit"]');
+        
+        form?.addEventListener('submit', function(e) {
+            // Show loading state
+            if (submitButton) {
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Wird gesendet...';
+                submitButton.disabled = true;
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

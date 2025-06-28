@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website Konfigurator - Erstellen Sie Ihre Traumwebsite in 3 einfachen Schritten. Professionell, responsive und individuell angepasst.">
+    <title>Website Konfigurator - Ihre Traumwebsite in 3 Schritten | WebManager</title>
+    
+    <!-- Skip Link für Barrierefreiheit -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white p-2 z-50">
+        Zum Hauptinhalt springen
+    </a>
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe', 
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Styles für Dropdown -->
+    <style>
+        /* Custom Select Styling */
+        select {
+            background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23ffffff' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 0.75rem;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+        
+        /* Firefox specific */
+        select::-moz-focus-inner {
+            border: 0;
+        }
+        
+        /* Webkit specific */
+        select::-webkit-outer-spin-button,
+        select::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        /* Option styling for dark theme */
+        select option {
+            background-color: #1e293b !important;
+            color: #ffffff !important;
+            padding: 8px 12px !important;
+        }
+        
+        select option:checked,
+        select option:hover {
+            background-color: #3b82f6 !important;
+            color: #ffffff !important;
+        }
+        
+        /* Timeline select styling */
+        #timeline {
+            background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23ffffff' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+        }
+        
+        /* Custom scrollbar for better UX */
+        select {
+            scrollbar-width: thin;
+            scrollbar-color: #3b82f6 #1e293b;
+        }
+        
+        select::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        select::-webkit-scrollbar-track {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        
+        select::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+        
+        select::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-dark-900 via-slate-800 to-dark-900 text-white antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-800/75 backdrop-blur-xl border-b border-slate-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-code text-2xl text-primary-500"></i>
+                    <span class="text-xl font-bold text-white">WebManager</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden md:flex items-center space-x-8">
+                    <li><a href="index.html" class="text-slate-300 hover:text-white transition-colors duration-200 font-medium">Home</a></li>
+                    <li><a href="index.html#leistungen" class="text-slate-300 hover:text-white transition-colors duration-200 font-medium">Leistungen</a></li>
+                    <li><a href="index.html#preise" class="text-slate-300 hover:text-white transition-colors duration-200 font-medium">Preise</a></li>
+                    <li><a href="index.html#projekte" class="text-slate-300 hover:text-white transition-colors duration-200 font-medium">Projekte</a></li>
+                    <li><a href="kontakt.html" class="text-slate-300 hover:text-white transition-colors duration-200 font-medium">Kontakt</a></li>
+                </ul>
+                
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="konfigurator.html" class="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-full font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-primary-500/25" aria-current="page">
+                        <i class="fas fa-edit"></i>
+                        <span>Konfigurator</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-md" id="mobile-menu-btn" aria-label="Menü öffnen">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-slate-700">
+                    <a href="index.html" class="block px-3 py-2 text-slate-300 hover:text-white transition-colors duration-200">Home</a>
+                    <a href="index.html#leistungen" class="block px-3 py-2 text-slate-300 hover:text-white transition-colors duration-200">Leistungen</a>
+                    <a href="index.html#preise" class="block px-3 py-2 text-slate-300 hover:text-white transition-colors duration-200">Preise</a>
+                    <a href="index.html#projekte" class="block px-3 py-2 text-slate-300 hover:text-white transition-colors duration-200">Projekte</a>
+                    <a href="kontakt.html" class="block px-3 py-2 text-slate-300 hover:text-white transition-colors duration-200">Kontakt</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+            <div class="text-center space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-primary-500/10 border border-primary-500/30 px-4 py-2 rounded-full text-primary-400">
+                        <i class="fas fa-magic"></i>
+                        <span class="text-sm font-medium">Intelligenter Website-Konfigurator</span>
+                    </div>
+                    
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+                    Ihre <span class="text-primary-500">perfekte Website</span>
+                    <br>in nur 4 Schritten
+                        </h1>
+                        
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    Einfach, schnell und professionell. Unser Konfigurator führt Sie zu Ihrer maßgeschneiderten Website.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Progress Bar -->
+            <div class="mb-12">
+                <div class="flex justify-center">
+                    <div class="flex items-center space-x-4">
+                        <!-- Step 1 -->
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center font-semibold step-circle" data-step="1">
+                                1
+                        </div>
+                            <span class="ml-2 text-sm font-medium text-white">Website-Typ</span>
+                        </div>
+                        
+                        <!-- Connector -->
+                        <div class="w-16 h-0.5 bg-slate-600"></div>
+                        
+                        <!-- Step 2 -->
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-slate-600 text-slate-400 rounded-full flex items-center justify-center font-semibold step-circle" data-step="2">
+                                2
+                            </div>
+                            <span class="ml-2 text-sm font-medium text-slate-400">Features</span>
+                        </div>
+                        
+                        <!-- Connector -->
+                        <div class="w-16 h-0.5 bg-slate-600"></div>
+                        
+                        <!-- Step 3 -->
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-slate-600 text-slate-400 rounded-full flex items-center justify-center font-semibold step-circle" data-step="3">
+                                3
+                            </div>
+                            <span class="ml-2 text-sm font-medium text-slate-400">Design</span>
+                        </div>
+                        
+                        <!-- Connector -->
+                        <div class="w-16 h-0.5 bg-slate-600"></div>
+                        
+                        <!-- Step 4 -->
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-slate-600 text-slate-400 rounded-full flex items-center justify-center font-semibold step-circle" data-step="4">
+                                4
+                            </div>
+                            <span class="ml-2 text-sm font-medium text-slate-400">Kontakt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="grid lg:grid-cols-4 gap-8">
+                <!-- Main Content Area -->
+                <div class="lg:col-span-3">
+                    <!-- Step 1: Website Type -->
+                    <section id="step-1" class="config-step">
+                        <header class="mb-8">
+                            <h2 class="text-3xl font-bold text-white mb-4">
+                                Welche Art von Website möchten Sie?
+                            </h2>
+                            <p class="text-lg text-slate-400">
+                                Wählen Sie den Typ aus, der am besten zu Ihrem Projekt passt.
+                            </p>
+                        </header>
+                        
+                        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+                            <!-- Landing Page -->
+                            <div class="website-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                 data-type="landing" data-price="999" tabindex="0">
+                                <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                    <h3 class="text-xl font-semibold mb-2 text-white">Landing Page</h3>
+                                <p class="text-slate-400 mb-4">
+                                    Perfekt für Marketing-Kampagnen und Lead-Generierung
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-primary-400">999€</span>
+                                    <span class="px-3 py-1 bg-orange-500/20 text-orange-400 text-xs rounded-full border border-orange-500/30">
+                                    Beliebt
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Business Website -->
+                            <div class="website-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                 data-type="business" data-price="1599" tabindex="0">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-2 text-white">Business Website</h3>
+                                <p class="text-slate-400 mb-4">
+                                    Professionelle Unternehmenswebsite für B2B und B2C
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-primary-400">1.599€</span>
+                                    </div>
+                                    </div>
+
+                            <!-- E-Commerce -->
+                            <div class="website-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                 data-type="ecommerce" data-price="2999" tabindex="0">
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-2 text-white">E-Commerce Shop</h3>
+                                <p class="text-slate-400 mb-4">
+                                    Online-Shop mit Zahlungssystem und Produktverwaltung
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-primary-400">2.999€</span>
+                                    <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full border border-purple-500/30">
+                                    Premium
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Portfolio -->
+                            <div class="website-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                 data-type="portfolio" data-price="1299" tabindex="0">
+                                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-2 text-white">Portfolio</h3>
+                                <p class="text-slate-400 mb-4">
+                                    Portfolio-Website für Künstler, Designer und Fotografen
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-primary-400">1.299€</span>
+                                    </div>
+                                    </div>
+
+                            <!-- Blog -->
+                            <div class="website-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                 data-type="blog" data-price="1199" tabindex="0">
+                                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-2 text-white">Blog</h3>
+                                <p class="text-slate-400 mb-4">
+                                    Content-fokussierte Website für Blogger und Magazine
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-primary-400">1.199€</span>
+                                    </div>
+                                    </div>
+
+                            <!-- Consulting -->
+                            <div class="website-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                 data-type="consulting" data-price="1799" tabindex="0">
+                                <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-2 text-white">Consulting</h3>
+                                <p class="text-slate-400 mb-4">
+                                    Website für Berater, Coaches und Dienstleister
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-primary-400">1.799€</span>
+                                    </div>
+                                    </div>
+                        </div>
+                    </section>
+
+                    <!-- Step 2: Features -->
+                    <section id="step-2" class="config-step hidden">
+                        <header class="mb-8">
+                            <h2 class="text-3xl font-bold text-white mb-4">
+                                Welche Features benötigen Sie?
+                            </h2>
+                            <p class="text-lg text-slate-400">
+                                Wählen Sie zusätzliche Funktionen für Ihre Website aus.
+                            </p>
+                        </header>
+                        
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- SEO -->
+                            <div class="feature-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                 data-feature="seo" data-price="299">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-lg">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold text-white mb-2">SEO Optimierung</h3>
+                                        <p class="text-slate-400 text-sm mb-3">
+                                            Professionelle Suchmaschinenoptimierung für bessere Rankings
+                                        </p>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-lg font-bold text-primary-400">+299€</span>
+                                            <input type="checkbox" class="w-5 h-5 text-primary-500 bg-slate-700 border-slate-600 rounded focus:ring-primary-500">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Analytics -->
+                            <div class="feature-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                 data-feature="analytics" data-price="199">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-lg">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold text-white mb-2">Web Analytics</h3>
+                                        <p class="text-slate-400 text-sm mb-3">
+                                            Detaillierte Besucherstatistiken und Performance-Tracking
+                                        </p>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-lg font-bold text-primary-400">+199€</span>
+                                            <input type="checkbox" class="w-5 h-5 text-primary-500 bg-slate-700 border-slate-600 rounded focus:ring-primary-500">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Booking System -->
+                            <div class="feature-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                 data-feature="booking" data-price="399">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-lg">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold text-white mb-2">Buchungssystem</h3>
+                                        <p class="text-slate-400 text-sm mb-3">
+                                            Online-Terminbuchung für Dienstleistungen
+                                        </p>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-lg font-bold text-primary-400">+399€</span>
+                                            <input type="checkbox" class="w-5 h-5 text-primary-500 bg-slate-700 border-slate-600 rounded focus:ring-primary-500">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Multilingual -->
+                            <div class="feature-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                 data-feature="multilingual" data-price="499">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-lg">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold text-white mb-2">Mehrsprachigkeit</h3>
+                                        <p class="text-slate-400 text-sm mb-3">
+                                            Website in mehreren Sprachen verfügbar
+                                        </p>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-lg font-bold text-primary-400">+499€</span>
+                                            <input type="checkbox" class="w-5 h-5 text-primary-500 bg-slate-700 border-slate-600 rounded focus:ring-primary-500">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Chat -->
+                            <div class="feature-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                 data-feature="chat" data-price="299">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white text-lg">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold text-white mb-2">Live Chat</h3>
+                                        <p class="text-slate-400 text-sm mb-3">
+                                            Direkter Kundensupport über Chat-Funktion
+                                        </p>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-lg font-bold text-primary-400">+299€</span>
+                                            <input type="checkbox" class="w-5 h-5 text-primary-500 bg-slate-700 border-slate-600 rounded focus:ring-primary-500">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Newsletter -->
+                            <div class="feature-card bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                 data-feature="newsletter" data-price="199">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full flex items-center justify-center text-white text-lg">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold text-white mb-2">Newsletter</h3>
+                                        <p class="text-slate-400 text-sm mb-3">
+                                            E-Mail-Marketing und Newsletter-Verwaltung
+                                        </p>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-lg font-bold text-primary-400">+199€</span>
+                                            <input type="checkbox" class="w-5 h-5 text-primary-500 bg-slate-700 border-slate-600 rounded focus:ring-primary-500">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Step 3: Design -->
+                    <section id="step-3" class="config-step hidden">
+                        <header class="mb-8">
+                            <h2 class="text-3xl font-bold text-white mb-4">
+                                Wählen Sie Ihr Design
+                            </h2>
+                            <p class="text-lg text-slate-400">
+                                Bestimmen Sie das Aussehen und die Farbgestaltung Ihrer Website.
+                            </p>
+                        </header>
+                        
+                        <div class="space-y-8">
+                            <!-- Color Schemes -->
+                            <div>
+                                <h3 class="text-xl font-semibold mb-6 text-white">Farbschema auswählen</h3>
+                                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    <!-- Modern Blue -->
+                                    <div class="color-scheme bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-scheme="modern-blue" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-2">
+                                                <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-blue-600 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-slate-800 rounded-full"></div>
+                                        </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Modern Blue</h4>
+                                        <p class="text-slate-400 text-sm">Professionell und vertrauenswürdig</p>
+                                    </div>
+                                    
+                                    <!-- Elegant Dark -->
+                                    <div class="color-scheme bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-scheme="elegant-dark" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-2">
+                                                <div class="w-8 h-8 bg-gray-900 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-gray-700 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-purple-600 rounded-full"></div>
+                                        </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Elegant Dark</h4>
+                                        <p class="text-slate-400 text-sm">Modern und sophistiziert</p>
+                                    </div>
+                                    
+                                    <!-- Nature Green -->
+                                    <div class="color-scheme bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-scheme="nature-green" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-2">
+                                                <div class="w-8 h-8 bg-green-600 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-emerald-500 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-teal-600 rounded-full"></div>
+                                        </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Nature Green</h4>
+                                        <p class="text-slate-400 text-sm">Frisch und nachhaltig</p>
+                                    </div>
+                                    
+                                    <!-- Warm Orange -->
+                                    <div class="color-scheme bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-scheme="warm-orange" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-2">
+                                                <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-red-500 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-amber-600 rounded-full"></div>
+                                        </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Warm Orange</h4>
+                                        <p class="text-slate-400 text-sm">Energisch und einladend</p>
+                                    </div>
+                                    
+                                    <!-- Sunset Pink -->
+                                    <div class="color-scheme bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-scheme="sunset-pink" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-2">
+                                                <div class="w-8 h-8 bg-pink-500 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-purple-500 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-rose-600 rounded-full"></div>
+                                        </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Sunset Pink</h4>
+                                        <p class="text-slate-400 text-sm">Kreativ und verspielt</p>
+                                    </div>
+                                    
+                                    <!-- Ocean Teal -->
+                                    <div class="color-scheme bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-scheme="ocean-teal" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-2">
+                                                <div class="w-8 h-8 bg-teal-500 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-cyan-600 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Ocean Teal</h4>
+                                        <p class="text-slate-400 text-sm">Beruhigend und seriös</p>
+                                    </div>
+
+                                    <!-- Royal Purple -->
+                                    <div class="color-scheme bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-scheme="royal-purple" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-2">
+                                                <div class="w-8 h-8 bg-purple-600 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-violet-700 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-indigo-800 rounded-full"></div>
+                                        </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Royal Purple</h4>
+                                        <p class="text-slate-400 text-sm">Luxuriös und sophisticated</p>
+                                    </div>
+                                    
+                                    <!-- Cyber Neon -->
+                                    <div class="color-scheme bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-scheme="cyber-neon" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-2">
+                                                <div class="w-8 h-8 bg-cyan-400 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-fuchsia-500 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-gray-900 rounded-full"></div>
+                                        </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Cyber Neon</h4>
+                                        <p class="text-slate-400 text-sm">Futuristisch und innovativ</p>
+                                    </div>
+                                    
+                                    <!-- Earthy Brown -->
+                                    <div class="color-scheme bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-scheme="earthy-brown" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-2">
+                                                <div class="w-8 h-8 bg-amber-700 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-orange-800 rounded-full"></div>
+                                                <div class="w-8 h-8 bg-stone-600 rounded-full"></div>
+                                        </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Earthy Brown</h4>
+                                        <p class="text-slate-400 text-sm">Natürlich und bodenständig</p>
+                                    </div>
+
+                                    <!-- Weitere Farben Card -->
+                                    <div class="bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         id="more-colors-btn" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-1">
+                                                <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-blue-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-purple-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-pink-500 rounded-full"></div>
+                                            </div>
+                                            <div class="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-plus text-slate-400"></i>
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Weitere Farben...</h4>
+                                        <p class="text-slate-400 text-sm">Entdecken Sie mehr Farbschemas</p>
+                                    </div>
+
+                                    <!-- Eigene Farbe Card -->
+                                    <div class="bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         id="custom-colors-btn" tabindex="0">
+                                        <div class="flex items-center space-x-4 mb-4">
+                                            <div class="flex space-x-1">
+                                                <div class="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-gradient-to-r from-yellow-500 to-pink-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full"></div>
+                                                <div class="w-4 h-4 bg-gradient-to-r from-green-500 to-blue-500 rounded-full"></div>
+                                            </div>
+                                            <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-palette text-white"></i>
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Eigene Farbe</h4>
+                                        <p class="text-slate-400 text-sm">Erstellen Sie Ihr eigenes Farbschema</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Design Styles -->
+                            <div>
+                                <h3 class="text-xl font-semibold mb-6 text-white">Design-Stil wählen</h3>
+                                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    <!-- Modern -->
+                                    <div class="design-style bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-style="modern" tabindex="0">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                            <i class="fas fa-laptop-code"></i>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Modern & Minimalistisch</h4>
+                                        <p class="text-slate-400 text-sm">Klare Linien, viel Weißraum, fokussiert auf Inhalte</p>
+                                    </div>
+                                    
+                                    <!-- Creative -->
+                                    <div class="design-style bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-style="creative" tabindex="0">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                            <i class="fas fa-palette"></i>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Kreativ & Verspielt</h4>
+                                        <p class="text-slate-400 text-sm">Auffällige Farben, kreative Layouts, einzigartige Elemente</p>
+                                    </div>
+                                    
+                                    <!-- Professional -->
+                                    <div class="design-style bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-style="professional" tabindex="0">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                            <i class="fas fa-briefcase"></i>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Professionell & Corporate</h4>
+                                        <p class="text-slate-400 text-sm">Seriös, vertrauenswürdig, geschäftlich orientiert</p>
+                                    </div>
+                                    
+                                    <!-- Elegant & Luxurious -->
+                                    <div class="design-style bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-style="elegant" tabindex="0">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                            <i class="fas fa-crown"></i>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Elegant & Luxuriös</h4>
+                                        <p class="text-slate-400 text-sm">Hochwertig, exklusiv, für Premium-Marken</p>
+                                    </div>
+                                    
+                                    <!-- Tech & Futuristic -->
+                                    <div class="design-style bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-style="tech" tabindex="0">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                            <i class="fas fa-robot"></i>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Tech & Futuristisch</h4>
+                                        <p class="text-slate-400 text-sm">Innovation, Technologie, digitale Vorreiter</p>
+                                    </div>
+                                    
+                                    <!-- Warm & Inviting -->
+                                    <div class="design-style bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                                         data-style="warm" tabindex="0">
+                                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                            <i class="fas fa-heart"></i>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Warm & Einladend</h4>
+                                        <p class="text-slate-400 text-sm">Freundlich, zugänglich, gemeinschaftlich</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Image Selection -->
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <h3 class="text-xl font-semibold text-white">Bilder für Ihre Website</h3>
+                                    <span class="text-sm text-slate-400 bg-slate-700/50 px-3 py-1 rounded-full">
+                                        <i class="fas fa-check-square mr-2"></i>Mehrfachauswahl möglich
+                                    </span>
+                                </div>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <!-- Eigene Bilder hochladen -->
+                                    <div class="image-option bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 relative" 
+                                         data-image-type="upload" tabindex="0">
+                                        <div class="absolute top-4 right-4">
+                                            <input type="checkbox" class="w-5 h-5 text-primary-500 bg-slate-700 border-slate-600 rounded focus:ring-primary-500 pointer-events-none">
+                                        </div>
+                                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Eigene Bilder hochladen</h4>
+                                        <p class="text-slate-400 text-sm mb-4">
+                                            Verwenden Sie Ihre eigenen Fotos und Grafiken
+                                        </p>
+                                        <div class="upload-area hidden">
+                                            <input type="file" id="image-upload" name="imageFiles" multiple accept="image/*" 
+                                                   class="hidden">
+                                            <label for="image-upload" 
+                                                   class="block w-full p-4 border-2 border-dashed border-slate-600 rounded-lg text-center cursor-pointer hover:border-primary-500 transition-colors">
+                                                <i class="fas fa-plus text-2xl text-slate-400 mb-2"></i>
+                                                <p class="text-sm text-slate-400">Klicken zum Hochladen</p>
+                                                <p class="text-xs text-slate-500 mt-1">PNG, JPG, WebP (max. 10MB pro Datei)</p>
+                                            </label>
+                                            <div id="uploaded-files" class="mt-4 space-y-2"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Lizenzfreie Bilder -->
+                                    <div class="image-option bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 relative" 
+                                         data-image-type="stock" tabindex="0">
+                                        <div class="absolute top-4 right-4">
+                                            <input type="checkbox" class="w-5 h-5 text-primary-500 bg-slate-700 border-slate-600 rounded focus:ring-primary-500 pointer-events-none">
+                                        </div>
+                                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                            <i class="fas fa-images"></i>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">Lizenzfreie Bilder</h4>
+                                        <p class="text-slate-400 text-sm">
+                                            Wir wählen passende, professionelle Stock-Fotos für Sie aus
+                                        </p>
+                                        <div class="flex items-center mt-4">
+                                            <i class="fas fa-check text-green-400 mr-2"></i>
+                                            <span class="text-sm text-green-400 font-medium">Keine zusätzlichen Kosten</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- KI-generierte Bilder -->
+                                    <div class="image-option bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 relative" 
+                                         data-image-type="ai" tabindex="0">
+                                        <div class="absolute top-4 right-4">
+                                            <input type="checkbox" class="w-5 h-5 text-primary-500 bg-slate-700 border-slate-600 rounded focus:ring-primary-500 pointer-events-none">
+                                        </div>
+                                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                                            <i class="fas fa-magic"></i>
+                                        </div>
+                                        <h4 class="text-lg font-semibold mb-2 text-white">KI-generierte Bilder</h4>
+                                        <p class="text-slate-400 text-sm">
+                                            Einzigartige, maßgeschneiderte Bilder erstellt von künstlicher Intelligenz
+                                        </p>
+                                        <div class="flex items-center mt-4">
+                                            <i class="fas fa-sparkles text-purple-400 mr-2"></i>
+                                            <span class="text-sm text-purple-400 font-medium">100% einzigartig</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Zusätzliche Optionen für gewählte Bildquelle -->
+                                <div id="image-options-details" class="mt-6 hidden">
+                                    <!-- Upload Details -->
+                                    <div id="upload-details" class="image-details hidden">
+                                        <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+                                            <h5 class="text-blue-400 font-semibold mb-2">Tipps für eigene Bilder:</h5>
+                                            <ul class="text-blue-200 text-sm space-y-1">
+                                                <li>• Hohe Auflösung (mindestens 1920px Breite)</li>
+                                                <li>• Professionelle Qualität bevorzugt</li>
+                                                <li>• Wir optimieren alle Bilder für Web-Performance</li>
+                                                <li>• Verschiedene Formate möglich (Header, Galerie, Icons)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Stock Details -->
+                                    <div id="stock-details" class="image-details hidden">
+                                        <div class="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
+                                            <h5 class="text-green-400 font-semibold mb-2">Was Sie erhalten:</h5>
+                                            <ul class="text-green-200 text-sm space-y-1">
+                                                <li>• Professionelle, hochauflösende Bilder</li>
+                                                <li>• Passend zu Ihrer Branche und Ihrem Stil</li>
+                                                <li>• Kommerziell nutzbar ohne weitere Kosten</li>
+                                                <li>• Wir wählen die besten Bilder für Ihre Website aus</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- AI Details -->
+                                    <div id="ai-details" class="image-details hidden">
+                                        <div class="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4">
+                                            <h5 class="text-purple-400 font-semibold mb-2">KI-Bildgenerierung:</h5>
+                                            <ul class="text-purple-200 text-sm space-y-1">
+                                                <li>• Basierend auf Ihrem Design und Ihrer Branche</li>
+                                                <li>• Keine Urheberrechtsprobleme</li>
+                                                <li>• Konsistenter Stil für Ihre gesamte Website</li>
+                                                <li>• Beliebig anpassbar und editierbar</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Step 4: Contact -->
+                    <section id="step-4" class="config-step hidden">
+                        <header class="mb-8">
+                            <h2 class="text-3xl font-bold text-white mb-4">
+                                Erzählen Sie uns von Ihrem Projekt
+                            </h2>
+                            <p class="text-lg text-slate-400">
+                                Diese Informationen helfen uns, Ihre perfekte Website zu erstellen.
+                            </p>
+                        </header>
+                        
+                        <form class="space-y-6" id="project-form">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="company-name" class="block text-sm font-medium text-slate-300 mb-2">
+                                        Firmenname / Projektname *
+                                    </label>
+                                    <input type="text" id="company-name" name="companyName" required
+                                           class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                </div>
+                                
+                                <div>
+                                    <label for="industry" class="block text-sm font-medium text-slate-300 mb-2">
+                                        Branche / Bereich
+                                    </label>
+                                    <select id="industry" name="industry"
+                                            class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 cursor-pointer">
+                                        <option value="">Bitte wählen...</option>
+                                        <option value="technology">Technologie & IT</option>
+                                        <option value="healthcare">Gesundheitswesen</option>
+                                        <option value="medical">Medizin & Praxen</option>
+                                        <option value="dental">Zahnarzt & Dental</option>
+                                        <option value="wellness">Wellness & Fitness</option>
+                                        <option value="finance">Finanzen & Versicherung</option>
+                                        <option value="accounting">Steuerberatung & Buchhaltung</option>
+                                        <option value="retail">Einzelhandel & E-Commerce</option>
+                                        <option value="fashion">Mode & Bekleidung</option>
+                                        <option value="automotive">Automotive & KFZ</option>
+                                        <option value="education">Bildung & Training</option>
+                                        <option value="consulting">Beratung & Coaching</option>
+                                        <option value="marketing-agency">Marketing Agentur</option>
+                                        <option value="creative">Kreativ & Design</option>
+                                        <option value="photography">Fotografie</option>
+                                        <option value="architecture">Architektur</option>
+                                        <option value="restaurant">Gastronomie & Hotellerie</option>
+                                        <option value="real-estate">Immobilien</option>
+                                        <option value="construction">Bau & Handwerk</option>
+                                        <option value="legal">Recht & Anwälte</option>
+                                        <option value="transport">Transport & Logistik</option>
+                                        <option value="travel">Reisen & Tourismus</option>
+                                        <option value="sports">Sport & Recreation</option>
+                                        <option value="beauty">Beauty & Kosmetik</option>
+                                        <option value="hair-salon">Friseur & Salon</option>
+                                        <option value="pets">Haustiere & Veterinär</option>
+                                        <option value="non-profit">Non-Profit & NGO</option>
+                                        <option value="entertainment">Entertainment & Events</option>
+                                        <option value="freelancer">Freelancer & Selbstständige</option>
+                                        <option value="other">Sonstige</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- Custom Industry Input (appears when "Sonstige" is selected) -->
+                                <div id="custom-industry-field" class="hidden">
+                                    <label for="custom-industry" class="block text-sm font-medium text-slate-300 mb-2">
+                                        Bitte geben Sie Ihre Branche an
+                                    </label>
+                                    <input type="text" id="custom-industry" name="customIndustry"
+                                           placeholder="z.B. Spezielle Nischensoftware, Handwerksbetrieb..."
+                                           class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="project-description" class="block text-sm font-medium text-slate-300 mb-2">
+                                    Projektbeschreibung *
+                                    <span class="text-slate-500 text-xs ml-1">(bitte auch Firmenadresse angeben, falls vorhanden)</span>
+                                </label>
+                                <textarea id="project-description" name="projectDescription" rows="6" maxlength="2000" required
+                                          placeholder="Beschreiben Sie Ihr Projekt, Ihre Ziele und was Sie erreichen möchten...&#10;&#10;Falls Sie ein Unternehmen haben, geben Sie bitte auch Ihre Geschäftsadresse an:&#10;• Firmenname&#10;• Straße & Hausnummer&#10;• PLZ & Ort"
+                                          class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                                <div class="mt-2 flex justify-end">
+                                    <span id="project-description-counter" class="text-xs text-slate-400">0 / 2000 Zeichen</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="inspirations" class="block text-sm font-medium text-slate-300 mb-2">
+                                    Inspirationen & Referenzen
+                                    <span class="text-slate-500 text-xs ml-1">(optional)</span>
+                                </label>
+                                <textarea id="inspirations" name="inspirations" rows="12" maxlength="1000"
+                                          placeholder="Haben Sie Websites, die Ihnen gefallen? Teilen Sie URLs oder beschreiben Sie Designs/Themes, die Sie inspirieren...&#10;&#10;Beispiele:&#10;• www.beispiel-website.de&#10;• Minimalistisches Design wie Apple&#10;• Dunkles Theme mit blauen Akzenten&#10;• Portfolio-Style wie Behance"
+                                          class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <div class="flex items-start space-x-2">
+                                        <i class="fas fa-lightbulb text-yellow-400 text-sm mt-0.5"></i>
+                                        <p class="text-xs text-slate-400">
+                                            Teilen Sie gerne Websites, die Ihnen gefallen, oder beschreiben Sie Design-Stile und Themes. Das hilft uns, Ihre Vision besser zu verstehen.
+                                        </p>
+                                    </div>
+                                    <span id="inspirations-counter" class="text-xs text-slate-400 ml-4 flex-shrink-0">0 / 1000 Zeichen</span>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="contact-name" class="block text-sm font-medium text-slate-300 mb-2">
+                                        Ihr Name *
+                                    </label>
+                                    <input type="text" id="contact-name" name="contactName" required
+                                           class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                </div>
+                                
+                                <div>
+                                    <label for="contact-email" class="block text-sm font-medium text-slate-300 mb-2">
+                                        E-Mail-Adresse *
+                                    </label>
+                                    <input type="email" id="contact-email" name="contactEmail" required
+                                           class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="contact-phone" class="block text-sm font-medium text-slate-300 mb-2">
+                                    Telefonnummer (optional)
+                                </label>
+                                <input type="tel" id="contact-phone" name="contactPhone"
+                                       class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            
+                            <div>
+                                <label for="timeline" class="block text-sm font-medium text-slate-300 mb-2">
+                                    Gewünschter Zeitrahmen
+                                </label>
+                                <select id="timeline" name="timeline"
+                                        class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 cursor-pointer">
+                                    <option value="">Bitte wählen...</option>
+                                    <option value="asap">So schnell wie möglich</option>
+                                    <option value="1-2-weeks">1-2 Wochen</option>
+                                    <option value="3-4-weeks">3-4 Wochen</option>
+                                    <option value="1-2-months">1-2 Monate</option>
+                                    <option value="flexible">Flexibel</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="additional-notes" class="block text-sm font-medium text-slate-300 mb-2">
+                                    Zusätzliche Anmerkungen
+                                </label>
+                                <textarea id="additional-notes" name="additionalNotes" rows="3"
+                                          placeholder="Gibt es etwas Besonderes, das wir wissen sollten?"
+                                          class="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                
+                <!-- Sidebar Summary -->
+                <aside class="lg:col-span-1">
+                    <div class="sticky top-24">
+                        <div class="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50">
+                            <h3 class="text-xl font-semibold mb-6 text-white">Ihre Auswahl</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="border-b border-slate-700/50 pb-3">
+                                    <span class="text-sm font-medium text-slate-400">Website-Typ:</span>
+                                    <div class="text-sm font-semibold text-white mt-1" id="summary-type">Noch nicht ausgewählt</div>
+                                </div>
+                                
+                                <div class="border-b border-slate-700/50 pb-3">
+                                    <span class="text-sm font-medium text-slate-400">Features:</span>
+                                    <div class="mt-1" id="summary-features">
+                                        <span class="text-sm text-slate-300">Noch keine Features ausgewählt</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="border-b border-slate-700/50 pb-3">
+                                    <span class="text-sm font-medium text-slate-400">Design:</span>
+                                    <div class="text-sm font-semibold text-white mt-1" id="summary-design">Noch nicht ausgewählt</div>
+                                </div>
+                                
+                                <div class="border-b border-slate-700/50 pb-3">
+                                    <span class="text-sm font-medium text-slate-400">Bilder:</span>
+                                    <div class="mt-1" id="summary-images">
+                                        <span class="text-sm text-slate-300">Noch keine Bildquelle ausgewählt</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-4 border-t border-slate-700/50">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-lg font-semibold text-white">Gesamtpreis:</span>
+                                        <span class="text-2xl font-bold text-primary-400" id="summary-total">0€</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <div class="mt-6 space-y-3">
+                                <button class="hidden w-full px-6 py-3 bg-slate-700 text-slate-300 rounded-lg font-semibold hover:bg-slate-600 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed" id="prev-btn">
+                                    <i class="fas fa-arrow-left mr-2"></i>
+                                    Zurück
+                                </button>
+                                <button class="w-full px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-xl font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-primary-500/25 transform hover:scale-105" id="next-btn" disabled>
+                                    Weiter
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                                <button class="hidden w-full px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-xl font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-green-500/25 transform hover:scale-105" id="submit-btn">
+                                    <i class="fas fa-paper-plane mr-2"></i>
+                                    Anfrage senden
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Custom Color Modal -->
+    <div id="custom-color-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/75 backdrop-blur-sm" id="custom-color-modal-backdrop"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative z-10 flex items-center justify-center min-h-full p-4">
+            <div class="bg-slate-800 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between p-6 border-b border-slate-700">
+                    <h3 class="text-2xl font-bold text-white">Eigenes Farbschema erstellen</h3>
+                    <button id="close-custom-color-modal" class="p-2 hover:bg-slate-700 rounded-lg transition-colors">
+                        <i class="fas fa-times text-slate-400 hover:text-white text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="p-6">
+                    <div class="text-center mb-8">
+                        <h4 class="text-xl font-semibold text-white mb-2">Wählen Sie drei Hauptfarben</h4>
+                        <p class="text-slate-400">Diese Farben bilden die Basis Ihres individuellen Designs</p>
+                    </div>
+                    
+                    <!-- Color Pickers -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <!-- Primary Color -->
+                        <div class="text-center">
+                            <label class="block text-sm font-medium text-slate-300 mb-3">Hauptfarbe</label>
+                            <div class="relative">
+                                <input type="color" id="custom-primary-color" value="#3B82F6" 
+                                       class="w-24 h-24 mx-auto rounded-xl border-2 border-slate-600 cursor-pointer">
+                                <div class="mt-3">
+                                    <input type="text" id="custom-primary-hex" value="#3B82F6" 
+                                           class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white text-center text-sm font-mono focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Secondary Color -->
+                        <div class="text-center">
+                            <label class="block text-sm font-medium text-slate-300 mb-3">Akzentfarbe</label>
+                            <div class="relative">
+                                <input type="color" id="custom-secondary-color" value="#10B981" 
+                                       class="w-24 h-24 mx-auto rounded-xl border-2 border-slate-600 cursor-pointer">
+                                <div class="mt-3">
+                                    <input type="text" id="custom-secondary-hex" value="#10B981" 
+                                           class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white text-center text-sm font-mono focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tertiary Color -->
+                        <div class="text-center">
+                            <label class="block text-sm font-medium text-slate-300 mb-3">Zusatzfarbe</label>
+                            <div class="relative">
+                                <input type="color" id="custom-tertiary-color" value="#8B5CF6" 
+                                       class="w-24 h-24 mx-auto rounded-xl border-2 border-slate-600 cursor-pointer">
+                                <div class="mt-3">
+                                    <input type="text" id="custom-tertiary-hex" value="#8B5CF6" 
+                                           class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white text-center text-sm font-mono focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Preview -->
+                    <div class="mb-6">
+                        <h5 class="text-lg font-medium text-white mb-4">Vorschau</h5>
+                        <div class="bg-slate-700/50 rounded-xl p-6 border border-slate-600">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex space-x-2">
+                                    <div id="preview-primary" class="w-8 h-8 rounded-full" style="background-color: #3B82F6;"></div>
+                                    <div id="preview-secondary" class="w-8 h-8 rounded-full" style="background-color: #10B981;"></div>
+                                    <div id="preview-tertiary" class="w-8 h-8 rounded-full" style="background-color: #8B5CF6;"></div>
+                                </div>
+                                <div>
+                                    <h6 class="font-semibold text-white">Ihr individuelles Design</h6>
+                                    <p class="text-slate-400 text-sm">Einzigartig & Persönlich</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Presets -->
+                    <div class="mb-6">
+                        <h5 class="text-lg font-medium text-white mb-4">Schnellauswahl</h5>
+                        <div class="grid grid-cols-4 gap-3">
+                            <button class="custom-preset flex space-x-1 p-2 rounded-lg border border-slate-600 hover:border-primary-500 transition-colors" 
+                                    data-colors="#FF6B6B,#4ECDC4,#45B7D1">
+                                <div class="w-4 h-4 rounded-full bg-red-400"></div>
+                                <div class="w-4 h-4 rounded-full bg-teal-400"></div>
+                                <div class="w-4 h-4 rounded-full bg-blue-400"></div>
+                            </button>
+                            <button class="custom-preset flex space-x-1 p-2 rounded-lg border border-slate-600 hover:border-primary-500 transition-colors" 
+                                    data-colors="#9B59B6,#3498DB,#E74C3C">
+                                <div class="w-4 h-4 rounded-full bg-purple-500"></div>
+                                <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                <div class="w-4 h-4 rounded-full bg-red-500"></div>
+                            </button>
+                            <button class="custom-preset flex space-x-1 p-2 rounded-lg border border-slate-600 hover:border-primary-500 transition-colors" 
+                                    data-colors="#F39C12,#E67E22,#D35400">
+                                <div class="w-4 h-4 rounded-full bg-yellow-500"></div>
+                                <div class="w-4 h-4 rounded-full bg-orange-500"></div>
+                                <div class="w-4 h-4 rounded-full bg-orange-600"></div>
+                            </button>
+                            <button class="custom-preset flex space-x-1 p-2 rounded-lg border border-slate-600 hover:border-primary-500 transition-colors" 
+                                    data-colors="#2ECC71,#27AE60,#16A085">
+                                <div class="w-4 h-4 rounded-full bg-green-400"></div>
+                                <div class="w-4 h-4 rounded-full bg-green-500"></div>
+                                <div class="w-4 h-4 rounded-full bg-teal-500"></div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex justify-between">
+                        <button id="reset-custom-colors" class="px-4 py-2 text-slate-400 hover:text-white transition-colors">
+                            <i class="fas fa-undo mr-2"></i>Zurücksetzen
+                        </button>
+                        <button id="apply-custom-colors" class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                            <i class="fas fa-check mr-2"></i>Anwenden
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Color Scheme Modal -->
+    <div id="color-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/75 backdrop-blur-sm" id="color-modal-backdrop"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative z-10 flex items-center justify-center min-h-full p-4">
+            <div class="bg-slate-800 rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between p-6 border-b border-slate-700">
+                    <h3 class="text-2xl font-bold text-white">Farbschemas auswählen</h3>
+                    <button id="close-color-modal" class="p-2 hover:bg-slate-700 rounded-lg transition-colors">
+                        <i class="fas fa-times text-slate-400 hover:text-white text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="p-6 overflow-y-auto max-h-[calc(90vh-140px)]">
+                    
+                    <div class="space-y-10">
+                        <!-- Helle & Freundliche Farben -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-white mb-6 flex items-center border-b border-slate-600 pb-3">
+                                <i class="fas fa-sun text-yellow-500 mr-3"></i>
+                                Helle & Freundliche Farben
+                                <span class="ml-auto text-sm text-slate-400 font-normal">8 Optionen</span>
+                            </h4>
+                            <div class="grid md:grid-cols-4 lg:grid-cols-6 gap-4">
+                                <!-- Sky Blue -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="sky-blue">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-sky-400 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-sky-500 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-white rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Sky Blue</h5>
+                                    <p class="text-slate-400 text-xs">Himmlisch & Leicht</p>
+                                </div>
+                                
+                                <!-- Cotton Candy -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="cotton-candy">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-pink-200 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-blue-200 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-purple-100 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Cotton Candy</h5>
+                                    <p class="text-slate-400 text-xs">Süß & Verspielt</p>
+                                </div>
+                                
+                                <!-- Sunrise Fresh -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="sunrise-fresh">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-yellow-300 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-orange-200 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-pink-200 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Sunrise Fresh</h5>
+                                    <p class="text-slate-400 text-xs">Morgendlich & Energisch</p>
+                                </div>
+                                
+                                <!-- Cream Dream -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="cream-dream">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-amber-100 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-orange-100 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-yellow-50 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Cream Dream</h5>
+                                    <p class="text-slate-400 text-xs">Cremig & Elegant</p>
+                                </div>
+                                
+                                                                                                 <!-- Mint Fresh -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="mint-fresh">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-teal-400 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-emerald-300 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-gray-100 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Mint Fresh</h5>
+                                    <p class="text-slate-400 text-xs">Erfrischend & Modern</p>
+                                </div>
+                                
+                                <!-- Peach Sunset -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="peach-sunset">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-orange-300 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-pink-300 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-yellow-200 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Peach Sunset</h5>
+                                    <p class="text-slate-400 text-xs">Warm & Einladend</p>
+                                </div>
+                                
+                                <!-- Lavender Dream -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="lavender-dream">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-purple-300 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-violet-400 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-pink-200 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Lavender Dream</h5>
+                                    <p class="text-slate-400 text-xs">Sanft & Elegant</p>
+                                </div>
+                                
+                                <!-- Soft Coral -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="soft-coral">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-red-300 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-rose-200 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-orange-200 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Soft Coral</h5>
+                                    <p class="text-slate-400 text-xs">Zart & Weiblich</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dunkle & Elegante Farben -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-white mb-4 flex items-center">
+                                <i class="fas fa-moon text-indigo-400 mr-2"></i>
+                                Dunkle & Elegante Farben
+                            </h4>
+                            <div class="grid md:grid-cols-4 lg:grid-cols-6 gap-4">
+                                <!-- Midnight Black -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="midnight-black">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-gray-900 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-slate-800 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-blue-600 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Midnight Black</h5>
+                                    <p class="text-slate-400 text-xs">Mysteriös & Kraftvoll</p>
+                                </div>
+                                
+                                <!-- Forest Deep -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="forest-deep">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-green-900 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-emerald-800 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-slate-700 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Forest Deep</h5>
+                                    <p class="text-slate-400 text-xs">Natürlich & Beruhigend</p>
+                                </div>
+                                
+                                <!-- Royal Purple -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="royal-purple">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-purple-900 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-indigo-800 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-violet-700 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Royal Purple</h5>
+                                    <p class="text-slate-400 text-xs">Luxuriös & Edel</p>
+                                </div>
+                                
+                                <!-- Charcoal Professional -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="charcoal-professional">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-gray-800 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-slate-600 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-zinc-700 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Charcoal Professional</h5>
+                                    <p class="text-slate-400 text-xs">Business & Seriös</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pastell-Farben -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-white mb-4 flex items-center">
+                                <i class="fas fa-heart text-pink-400 mr-2"></i>
+                                Pastell & Soft Colors
+                            </h4>
+                            <div class="grid md:grid-cols-4 lg:grid-cols-6 gap-4">
+                                <!-- Baby Blue -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="baby-blue">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-blue-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-sky-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-cyan-50 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Baby Blue</h5>
+                                    <p class="text-slate-400 text-xs">Zart & Beruhigend</p>
+                                </div>
+                                
+                                <!-- Soft Rose -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="soft-rose">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-rose-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-pink-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-red-50 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Soft Rose</h5>
+                                    <p class="text-slate-400 text-xs">Romantisch & Elegant</p>
+                                </div>
+                                
+                                <!-- Mint Cream -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="mint-cream">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-green-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-emerald-50 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-teal-50 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Mint Cream</h5>
+                                    <p class="text-slate-400 text-xs">Frisch & Sanft</p>
+                                </div>
+                                
+                                <!-- Lemon Chiffon -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="lemon-chiffon">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-yellow-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-amber-50 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-orange-50 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Lemon Chiffon</h5>
+                                    <p class="text-slate-400 text-xs">Sonnig & Heiter</p>
+                                </div>
+                                
+                                <!-- Lilac Mist -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="lilac-mist">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-purple-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-violet-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-indigo-50 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Lilac Mist</h5>
+                                    <p class="text-slate-400 text-xs">Mystisch & Träumerisch</p>
+                                </div>
+                                
+                                <!-- Peachy Keen -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="peachy-keen">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-orange-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-pink-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-yellow-100 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Peachy Keen</h5>
+                                    <p class="text-slate-400 text-xs">Warm & Lieblich</p>
+                                </div>
+                                
+                                <!-- Powder Blue -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="powder-blue">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-blue-50 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-slate-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-gray-50 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Powder Blue</h5>
+                                    <p class="text-slate-400 text-xs">Klassisch & Zeitlos</p>
+                                </div>
+                                
+                                <!-- Sage Green -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="sage-green">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-stone-200 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-emerald-100 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-green-100 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Sage Green</h5>
+                                    <p class="text-slate-400 text-xs">Naturverbunden & Ruhig</p>
+                                </div>
+                                
+                                <!-- Blush Pink -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="blush-pink">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-pink-50 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-rose-50 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-red-50 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Blush Pink</h5>
+                                    <p class="text-slate-400 text-xs">Feminin & Dezent</p>
+                                </div>
+                                
+                                <!-- Vanilla Cream -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="vanilla-cream">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-amber-50 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-yellow-50 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-orange-50 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Vanilla Cream</h5>
+                                    <p class="text-slate-400 text-xs">Mild & Komfortabel</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Business & Corporate -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-white mb-4 flex items-center">
+                                <i class="fas fa-building text-blue-500 mr-2"></i>
+                                Business & Corporate
+                            </h4>
+                            <div class="grid md:grid-cols-4 lg:grid-cols-6 gap-4">
+                                <!-- Executive Blue -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="executive-blue">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-blue-600 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-slate-600 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-gray-700 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Executive Blue</h5>
+                                    <p class="text-slate-400 text-xs">Autoritativ & Vertrauenswürdig</p>
+                                </div>
+                                
+                                <!-- Corporate Gray -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="corporate-gray">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-gray-500 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-slate-500 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-zinc-500 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Corporate Gray</h5>
+                                    <p class="text-slate-400 text-xs">Professionell & Neutral</p>
+                                </div>
+                                
+                                <!-- Banking Green -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="banking-green">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-green-700 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-emerald-600 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-gray-600 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Banking Green</h5>
+                                    <p class="text-slate-400 text-xs">Stabilität & Wachstum</p>
+                                </div>
+                                
+                                <!-- Tech Navy -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="tech-navy">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-blue-900 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-indigo-800 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-slate-700 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Tech Navy</h5>
+                                    <p class="text-slate-400 text-xs">Innovativ & Technisch</p>
+                                </div>
+                                
+                                <!-- Legal Burgundy -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="legal-burgundy">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-red-900 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-rose-800 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-gray-700 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Legal Burgundy</h5>
+                                    <p class="text-slate-400 text-xs">Würdevoll & Traditionell</p>
+                                </div>
+                                
+                                <!-- Finance Gold -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="finance-gold">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-yellow-600 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-amber-600 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-orange-700 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Finance Gold</h5>
+                                    <p class="text-slate-400 text-xs">Luxuriös & Wertvoll</p>
+                                </div>
+                                
+                                <!-- Consulting Teal -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="consulting-teal">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-teal-600 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-cyan-600 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-blue-600 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Consulting Teal</h5>
+                                    <p class="text-slate-400 text-xs">Beratend & Kompetent</p>
+                                </div>
+                                
+                                <!-- Medical White -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500 hover:shadow-lg group" 
+                                     data-scheme="medical-white">
+                                    <div class="flex space-x-2 mb-3">
+                                        <div class="w-6 h-6 bg-white rounded-full border border-gray-300"></div>
+                                        <div class="w-6 h-6 bg-blue-500 rounded-full border border-gray-200"></div>
+                                        <div class="w-6 h-6 bg-red-500 rounded-full border border-gray-200"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Medical White</h5>
+                                    <p class="text-slate-400 text-xs">Sauber & Vertrauensvoll</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bunte & Lebendige Farben -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-white mb-4 flex items-center">
+                                <i class="fas fa-rainbow text-red-500 mr-2"></i>
+                                Bunte & Lebendige Farben
+                            </h4>
+                            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                <!-- Rainbow Gradient -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="rainbow-gradient">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-red-500 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-orange-500 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-yellow-500 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Rainbow Gradient</h5>
+                                    <p class="text-slate-400 text-xs">Kreativ & Verspielt</p>
+                                </div>
+                                
+                                <!-- Neon Glow -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="neon-glow">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-lime-400 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-cyan-400 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-fuchsia-500 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Neon Glow</h5>
+                                    <p class="text-slate-400 text-xs">Futuristisch & Auffällig</p>
+                                </div>
+                                
+                                <!-- Tropical Paradise -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="tropical-paradise">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-yellow-400 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-pink-500 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Tropical Paradise</h5>
+                                    <p class="text-slate-400 text-xs">Exotisch & Frisch</p>
+                                </div>
+                                
+                                <!-- Electric Energy -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="electric-energy">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-blue-500 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-purple-600 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-pink-600 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Electric Energy</h5>
+                                    <p class="text-slate-400 text-xs">Energisch & Modern</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Außergewöhnliche Farben -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-white mb-4 flex items-center">
+                                <i class="fas fa-magic text-purple-500 mr-2"></i>
+                                Außergewöhnliche & Einzigartige Farben
+                            </h4>
+                            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                <!-- Galaxy Space -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="galaxy-space">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-indigo-900 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-purple-800 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-pink-600 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Galaxy Space</h5>
+                                    <p class="text-slate-400 text-xs">Mystisch & Unendlich</p>
+                                </div>
+                                
+                                <!-- Autumn Gold -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="autumn-gold">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-amber-600 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-orange-700 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-red-800 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Autumn Gold</h5>
+                                    <p class="text-slate-400 text-xs">Warm & Gemütlich</p>
+                                </div>
+                                
+                                <!-- Ice Crystal -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="ice-crystal">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-blue-100 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-cyan-200 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-slate-300 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Ice Crystal</h5>
+                                    <p class="text-slate-400 text-xs">Klar & Rein</p>
+                                </div>
+                                
+                                <!-- Fire Phoenix -->
+                                <div class="color-scheme-modal bg-slate-700/50 border border-slate-600 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:border-primary-500" 
+                                     data-scheme="fire-phoenix">
+                                    <div class="flex space-x-1 mb-3">
+                                        <div class="w-6 h-6 bg-red-600 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-orange-600 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-yellow-600 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-medium text-white text-sm">Fire Phoenix</h5>
+                                    <p class="text-slate-400 text-xs">Leidenschaftlich & Kraftvoll</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-primary-500/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <i class="fas fa-code text-2xl text-primary-500"></i>
+                    <span class="text-xl font-bold text-white">WebManager</span>
+                </div>
+                <p class="text-slate-400">
+                    Professionelle Websites, die Ihr Unternehmen voranbringen.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="konfigurator.js"></script>
+</body>
+</html> 
